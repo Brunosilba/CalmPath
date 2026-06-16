@@ -1,0 +1,551 @@
+/* ── Dashboard header ── */
+.dash-header {
+  background: var(--navy);
+  padding: 32px 40px;
+}
+.dash-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.dash-welcome h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.dash-welcome h1 span { color: #7DD8F0; }
+.dash-welcome p {
+  font-size: 14px;
+  color: #7DD8F0;
+}
+
+/* ── XP / nível ── */
+.dash-level-info {
+  min-width: 260px;
+  flex: 1;
+  max-width: 340px;
+}
+.level-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.level-tag {
+  background: #19A8D6;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.xp-tag {
+  background: rgba(255,255,255,0.1);
+  color: #7DD8F0;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.xp-track {
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  height: 8px;
+  width: 100%;
+  margin-bottom: 6px;
+}
+.xp-bar-fill {
+  background: #19A8D6;
+  border-radius: 20px;
+  height: 8px;
+  width: 0%;
+  transition: width 1s ease;
+}
+.xp-next {
+  font-size: 11px;
+  color: #4A7EA0;
+}
+
+/* ── Main layout ── */
+.dash-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.dash-section { display: flex; flex-direction: column; gap: 16px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-header h2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-header h2 i { color: var(--cyan); font-size: 18px; }
+.link-all {
+  font-size: 13px;
+  color: var(--cyan);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.link-all:hover { text-decoration: underline; }
+
+/* ── Desafio diário ── */
+.challenge-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-left: 3px solid var(--cyan);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.challenge-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--cyan-l);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+.challenge-info { flex: 1; }
+.challenge-info h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.challenge-info p {
+  font-size: 13px;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
+
+/* ── XP badge ── */
+.xp-badge {
+  display: inline-block;
+  background: var(--cyan-l);
+  color: #1B7BA8;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── Botão completar ── */
+.btn-complete {
+  padding: 10px 20px;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+.btn-complete:hover { background: var(--navy-d); }
+.btn-complete--sm {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+/* ── Grelha de atividades recomendadas ── */
+.act-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.act-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color .2s;
+}
+.act-card:hover { border-color: var(--cyan-b); }
+.act-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--cyan-l);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--cyan);
+}
+.act-category {
+  font-size: 11px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.act-info h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  margin: 4px 0 8px;
+}
+.act-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-3);
+}
+.act-meta i { font-size: 13px; vertical-align: -1px; }
+
+/* ── Linha inferior ── */
+.dash-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* ── Histórico recente ── */
+.recent-list {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.recent-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 0.5px solid var(--border);
+}
+.recent-item:last-child { border-bottom: none; }
+.recent-check {
+  width: 28px;
+  height: 28px;
+  background: var(--cyan-l);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+.recent-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.recent-title { font-size: 13px; font-weight: 500; color: var(--navy); }
+.recent-date  { font-size: 11px; color: var(--text-3); }
+
+/* ── Badges ── */
+.badges-list {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: var(--cyan-l);
+  border-radius: var(--radius-md);
+}
+.badge-icon {
+  font-size: 22px;
+  color: var(--cyan);
+}
+.badge-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #1B7BA8;
+}
+
+/* ── Estado vazio ── */
+.empty-state {
+  font-size: 13px;
+  color: var(--text-3);
+  padding: 20px;
+  text-align: center;
+}
+
+/* ── Toast de XP ── */
+.xp-toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: var(--navy);
+  color: #7DD8F0;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .3s, transform .3s;
+  pointer-events: none;
+}
+.xp-toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ── Estatísticas ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+.stat-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  transition: border-color .2s;
+}
+.stat-card:hover { border-color: var(--cyan-b); }
+.stat-card-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--cyan-l);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--cyan);
+}
+.stat-card-value {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1;
+}
+.stat-card-label {
+  font-size: 12px;
+  color: var(--text-3);
+}
+/* ── Modal de celebração ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(27, 59, 111, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s;
+}
+.modal-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateY(12px);
+  transition: transform .25s;
+}
+.modal-overlay.visible .modal-card {
+  transform: translateY(0);
+}
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.modal-trophy {
+  width: 56px;
+  height: 56px;
+  background: var(--cyan-l);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: var(--cyan);
+}
+.modal-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.modal-xp-badge {
+  background: var(--navy);
+  color: #7DD8F0;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 20px;
+}
+.modal-divider {
+  height: 0.5px;
+  background: var(--border);
+}
+.modal-emotion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.modal-emotion-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  text-align: center;
+}
+.modal-emotion input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-1);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.modal-emotion input:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px var(--cyan-l);
+}
+.modal-emotion input::placeholder { color: var(--text-3); }
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.btn-skip {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  color: var(--text-3);
+  cursor: pointer;
+  font-family: inherit;
+  transition: color .15s;
+}
+.btn-skip:hover { color: var(--navy); }
+
+/* ── Histórico emocional no dashboard ── */
+.emotional-log-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.emotion-log-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 0.5px solid var(--border);
+}
+.emotion-log-item:last-child { border-bottom: none; }
+.emotion-log-emoji { font-size: 22px; flex-shrink: 0; }
+.emotion-log-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+.emotion-log-label { font-size: 13px; font-weight: 500; color: var(--navy); }
+.emotion-log-note  { font-size: 13px; color: var(--text-2); }
+.emotion-log-date  { font-size: 11px; color: var(--text-3); }
+
+/* ── Emojis dentro do modal ── */
+.emotion-scale {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.emotion-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  font-family: inherit;
+  min-width: 70px;
+}
+.emotion-btn span:first-child { font-size: 26px; }
+.emotion-label { font-size: 10px; color: var(--text-3); }
+.emotion-btn:hover { border-color: var(--cyan-b); background: var(--cyan-l); }
+.emotion-btn.selected { border-color: var(--cyan); background: var(--cyan-l); }
+.emotion-btn.selected .emotion-label { color: #1B7BA8; }
+
+/* ── Histórico emocional — secção no dashboard ── */
+.dash-section .emotional-log-list { margin-top: 0; }
+
+@media (max-width: 640px) {
+  .modal-card { padding: 24px 20px; }
+  .emotion-btn { min-width: 56px; padding: 8px 8px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .dash-header { padding: 24px 20px; }
+  .dash-header-inner { flex-direction: column; gap: 20px; }
+  .dash-level-info { max-width: 100%; }
+  .dash-main { padding: 24px 20px 48px; gap: 28px; }
+  .dash-bottom { grid-template-columns: 1fr; }
+  .challenge-card { flex-direction: column; align-items: flex-start; }
+  .xp-toast { bottom: 16px; right: 16px; }
+}

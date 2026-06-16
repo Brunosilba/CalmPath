@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CalmPath — Perfil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/profile.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <a href="/pages/dashboard.html" class="nav-logo">
+      <div class="nav-logo-mark"><i class="ti ti-plant"></i></div>
+      <span class="nav-logo-name">CalmPath</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="activities.html">Atividades</a></li>
+      <li><a href="profile.html" class="nav-active">Perfil</a></li>
+    </ul>
+    <div class="nav-actions">
+      <span class="nav-username" id="nav-username"></span>
+      <button class="btn btn-ghost" id="btn-logout">
+        <i class="ti ti-logout"></i> Sair
+      </button>
+    </div>
+  </nav>
+
+  <!-- Cabeçalho do perfil -->
+  <div class="profile-header">
+    <div class="profile-header-inner">
+      <div class="profile-avatar" id="profile-initials">??</div>
+      <div class="profile-header-info">
+        <h1 id="profile-name">—</h1>
+        <p id="profile-email" class="profile-email-txt"></p>
+        <p id="profile-joined" class="profile-joined-txt"></p>
+      </div>
+      <div class="profile-hdr-stats">
+        <div class="hdr-stat">
+          <span class="hdr-stat-val" id="hdr-stat-xp">0</span>
+          <span class="hdr-stat-label">XP total</span>
+        </div>
+        <div class="hdr-stat">
+          <span class="hdr-stat-val" id="hdr-stat-acts">0</span>
+          <span class="hdr-stat-label">Atividades</span>
+        </div>
+        <div class="hdr-stat">
+          <span class="hdr-stat-val" id="hdr-stat-level">1</span>
+          <span class="hdr-stat-label">Nível</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="profile-tabs-wrap">
+    <div class="profile-tabs">
+      <button class="profile-tab profile-tab--active" data-tab="edit">
+        <i class="ti ti-user-edit"></i> Conta
+      </button>
+      <button class="profile-tab" data-tab="favorites">
+        <i class="ti ti-heart"></i> Favoritos
+      </button>
+      <button class="profile-tab" data-tab="emotional">
+        <i class="ti ti-mood-smile"></i> Registo emocional
+      </button>
+      <button class="profile-tab" data-tab="goals">
+        <i class="ti ti-target"></i> Objetivos
+      </button>
+    </div>
+  </div>
+
+  <!-- Painéis -->
+  <main class="profile-main">
+
+    <!-- Painel: Conta -->
+    <div class="profile-panel profile-panel--active" id="panel-edit">
+      <div class="profile-section-grid">
+
+        <!-- Editar dados -->
+        <div class="profile-card">
+          <h2 class="profile-card-title"><i class="ti ti-user"></i> Dados pessoais</h2>
+          <form id="form-edit" novalidate>
+            <div class="form-group">
+              <label for="edit-name">Nome completo</label>
+              <input type="text" id="edit-name" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="edit-email">Email</label>
+              <input type="email" id="edit-email" autocomplete="email" />
+            </div>
+            <span class="field-msg" id="edit-msg"></span>
+            <button type="submit" class="btn-profile-save">
+              <i class="ti ti-check"></i> Guardar alterações
+            </button>
+          </form>
+        </div>
+
+        <!-- Alterar palavra-passe -->
+        <div class="profile-card">
+          <h2 class="profile-card-title"><i class="ti ti-lock"></i> Palavra-passe</h2>
+          <form id="form-password" novalidate>
+            <div class="form-group">
+              <label for="pwd-current">Palavra-passe atual</label>
+              <input type="password" id="pwd-current" autocomplete="current-password" placeholder="••••••••" />
+            </div>
+            <div class="form-group">
+              <label for="pwd-new">Nova palavra-passe</label>
+              <input type="password" id="pwd-new" autocomplete="new-password" placeholder="Mínimo 6 caracteres" />
+            </div>
+            <div class="form-group">
+              <label for="pwd-confirm">Confirmar nova palavra-passe</label>
+              <input type="password" id="pwd-confirm" autocomplete="new-password"
+                placeholder="Repete a nova palavra-passe" />
+            </div>
+            <span class="field-msg" id="pwd-msg"></span>
+            <button type="submit" class="btn-profile-save">
+              <i class="ti ti-lock-check"></i> Alterar palavra-passe
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Painel: Favoritos -->
+    <div class="profile-panel" id="panel-favorites">
+      <div class="profile-card profile-card--full">
+        <h2 class="profile-card-title"><i class="ti ti-heart"></i> As tuas atividades favoritas</h2>
+        <div id="favorites-list"></div>
+      </div>
+    </div>
+
+    <!-- Painel: Registo emocional -->
+    <div class="profile-panel" id="panel-emotional">
+      <div class="profile-card profile-card--full">
+        <h2 class="profile-card-title"><i class="ti ti-mood-smile"></i> Histórico emocional</h2>
+        <p class="profile-card-sub">Registos após a conclusão de atividades, do mais recente para o mais antigo.</p>
+        <div id="emotional-log-full"></div>
+      </div>
+    </div>
+
+    <!-- Painel: Objetivos -->
+    <div class="profile-panel" id="panel-goals">
+      <div class="profile-card profile-card--full">
+        <h2 class="profile-card-title"><i class="ti ti-target"></i> Os meus objetivos</h2>
+        <p class="profile-card-sub">Define objetivos pessoais e acompanha o teu progresso.</p>
+
+        <form id="form-goal" class="goal-form">
+          <input type="text" id="goal-input" placeholder="Ex: Iniciar uma conversa com um desconhecido..."
+            maxlength="120" />
+          <button type="submit" class="btn-goal-add">
+            <i class="ti ti-plus"></i> Adicionar
+          </button>
+        </form>
+
+        <div id="goals-list"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast -->
+  <div id="profile-toast" class="xp-toast"></div>
+
+  <!-- MVC scripts -->
+  <script src="../js/models/notificationModel.js"></script>
+  <script src="../js/views/notificationView.js"></script>
+  <script src="../js/controllers/notificationController.js"></script>
+  <script src="../js/models/userModel.js"></script>
+  <script src="../js/models/profileModel.js"></script>
+  <script src="../js/views/profileView.js"></script>
+  <script src="../js/controllers/profileController.js"></script>
+
+</body>
+
+</html>

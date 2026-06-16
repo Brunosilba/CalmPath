@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CalmPath — Atividades</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/activities.css" />
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a href="/pages/dashboard.html" class="nav-logo">
+      <div class="nav-logo-mark"><i class="ti ti-plant"></i></div>
+      <span class="nav-logo-name">CalmPath</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="activities.html" class="nav-active">Atividades</a></li>
+      <li><a href="profile.html">Perfil</a></li>
+    </ul>
+    <div class="nav-actions">
+      <span class="nav-username" id="nav-username"></span>
+      <button class="btn btn-ghost" id="btn-logout">
+        <i class="ti ti-logout"></i> Sair
+      </button>
+    </div>
+  </nav>
+
+  <div class="acts-header">
+    <div class="acts-header-inner">
+      <div>
+        <h1>Atividades</h1>
+        <p>Simulações, exercícios de relaxamento, quizzes e desafios — ao teu ritmo.</p>
+      </div>
+      <div class="search-wrap">
+        <i class="ti ti-search"></i>
+        <input type="search" id="search-input" placeholder="Pesquisar atividades..."
+          aria-label="Pesquisar atividades" />
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-wrap">
+    <div id="filter-bar" role="group" aria-label="Filtrar por categoria"></div>
+  </div>
+
+  <main class="acts-main">
+    <div id="activities-grid" class="acts-grid"></div>
+  </main>
+
+  <div id="activity-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card--lg">
+      <button class="modal-close-btn" id="modal-close" aria-label="Fechar">
+        <i class="ti ti-x"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="act-toast" class="xp-toast"></div>
+
+  <script src="../js/models/userModel.js"></script>
+  <script src="../js/models/dashboardModel.js"></script>
+  <script src="../js/models/activitiesModel.js"></script>
+  <script src="../js/views/activitiesView.js"></script>
+  <script src="../js/models/notificationModel.js"></script>
+  <script src="../js/views/notificationView.js"></script>
+  <script src="../js/controllers/notificationController.js"></script>
+  <script src="../js/controllers/activitiesController.js"></script>
+  <script src="../js/controllers/activitiesController.js"></script>
+
+</body>
+
+</html>

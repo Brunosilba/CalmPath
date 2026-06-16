@@ -1,0 +1,175 @@
+[
+  {
+    "id": "sim-01",
+    "title": "Iniciar uma conversa",
+    "category": "Simulação",
+    "icon": "ti-messages",
+    "duration": "5 min",
+    "xp": 30,
+    "difficulty": 1,
+    "description": "Pratica como iniciar uma conversa com alguém que não conheces bem, num ambiente seguro e sem pressão.",
+    "type": "simulation",
+    "steps": [
+      { "prompt": "Estás numa fila do supermercado. A pessoa à tua frente deixou cair algo. O que dizes?", "options": ["«Com licença, deixou cair isto.»", "Não dizes nada e ignorás.", "«Olá! Desculpe, acho que deixou cair isto.»"], "correct": 2, "feedback": "Ótimo! Começar com um cumprimento torna a abordagem mais calorosa." },
+      { "prompt": "A pessoa agradece e sorri. Como continuas?", "options": ["Sorris e viram as costas.", "«Não tem problema! Já lhe aconteceu passar muito tempo à procura de algo?»", "«Ok.»"], "correct": 1, "feedback": "Perfeito! Uma pergunta aberta mantém a conversa fluída e mostra interesse genuíno." },
+      { "prompt": "A pessoa responde animada. Como terminas a conversa de forma natural?", "options": ["Cortas a meio da frase dela.", "«Boa sorte! Foi um prazer falar consigo.»", "Não dizes nada e sais."], "correct": 1, "feedback": "Excelente encerramento — educado, caloroso e natural." }
+    ]
+  },
+  {
+    "id": "sim-02",
+    "title": "Participar num grupo",
+    "category": "Simulação",
+    "icon": "ti-users",
+    "duration": "8 min",
+    "xp": 40,
+    "difficulty": 2,
+    "description": "Simula entrar numa conversa de grupo e partilhar a tua opinião sem te sentires fora do lugar.",
+    "type": "simulation",
+    "steps": [
+      { "prompt": "Estás num grupo de colegas a discutir um filme. Queres participar mas sentes hesitação. O que fazes?", "options": ["Esperas que alguém te pergunte diretamente.", "«Eu vi esse filme! Achei o final surpreendente — vocês o que acharam?»", "Ficas em silêncio e ouves."], "correct": 1, "feedback": "Partilhar uma opinião e fazer uma pergunta ao grupo é uma forma eficaz de entrar na conversa." },
+      { "prompt": "Alguém discorda da tua opinião de forma direta. O que respondes?", "options": ["«Sim, tens razão, desculpa.»", "«Percebo o teu ponto! Para mim, o que mais me marcou foi...»", "Ficas em silêncio e mudas de assunto."], "correct": 1, "feedback": "Validar a perspetiva do outro e manter a tua posição de forma calma é uma competência social muito valorizada." },
+      { "prompt": "A conversa começa a mudar de assunto e sentes que estás a ficar de fora. O que fazes?", "options": ["Sais do grupo silenciosamente.", "Esperas e depois comentas algo sobre o novo tema.", "Interrompes alguém para voltar ao assunto anterior."], "correct": 1, "feedback": "Adaptar-se ao fluxo da conversa e encontrar um momento natural para participar é o caminho certo." }
+    ]
+  },
+  {
+    "id": "sim-03",
+    "title": "Fazer uma apresentação",
+    "category": "Simulação",
+    "icon": "ti-presentation",
+    "duration": "10 min",
+    "xp": 50,
+    "difficulty": 3,
+    "description": "Pratica apresentar ideias em frente a um grupo, desde a abertura até à gestão de perguntas.",
+    "type": "simulation",
+    "steps": [
+      { "prompt": "Vais apresentar um projeto. Como começas a tua abertura?", "options": ["«Bom dia. Hoje vou falar sobre...» e mergulhas no conteúdo.", "«Bom dia a todos! Antes de começar, gostava de vos fazer uma pergunta rápida...»", "Começas imediatamente a ler os slides."], "correct": 1, "feedback": "Começar com uma pergunta capta a atenção do público e reduz a sensação de exposição." },
+      { "prompt": "A meio da apresentação, perdes o fio de pensamento. O que fazes?", "options": ["Pedes desculpa repetidamente e ficas em pânico.", "Respiras fundo, dizes «deixem-me verificar o próximo ponto» e continuas.", "Saltas o resto da apresentação."], "correct": 1, "feedback": "Uma pausa breve e tranquila parece muito mais profissional do que parece. O público raramente nota." },
+      { "prompt": "No final, alguém faz uma pergunta que não sabes responder. O que dizes?", "options": ["«Não sei.» e ficas em silêncio.", "«Boa pergunta! Não tenho a resposta de imediato, mas posso verificar e responder-te depois.»", "Inventas uma resposta."], "correct": 1, "feedback": "Admitir que não sabes algo com confiança é um sinal de maturidade e honestidade intelectual." }
+    ]
+  },
+  {
+    "id": "breath-01",
+    "title": "Respiração 4-7-8",
+    "category": "Relaxamento",
+    "icon": "ti-lungs",
+    "duration": "3 min",
+    "xp": 20,
+    "difficulty": 1,
+    "description": "Uma das técnicas de relaxamento mais eficazes para acalmar o sistema nervoso em momentos de ansiedade.",
+    "type": "breathing",
+    "cycles": 3,
+    "phases": [
+      { "name": "Inspira", "duration": 4, "instruction": "Inspira lentamente pelo nariz" },
+      { "name": "Segura", "duration": 7, "instruction": "Segura o ar, sem tensão" },
+      { "name": "Expira", "duration": 8, "instruction": "Expira devagar pela boca" }
+    ]
+  },
+  {
+    "id": "breath-02",
+    "title": "Respiração diafragmática",
+    "category": "Relaxamento",
+    "icon": "ti-wind",
+    "duration": "4 min",
+    "xp": 20,
+    "difficulty": 1,
+    "description": "Ativa a resposta de relaxamento do corpo através de respirações profundas e conscientes pelo diafragma.",
+    "type": "breathing",
+    "cycles": 4,
+    "phases": [
+      { "name": "Inspira", "duration": 5, "instruction": "Inspira profundamente, deixa a barriga expandir" },
+      { "name": "Pausa", "duration": 2, "instruction": "Pausa natural" },
+      { "name": "Expira", "duration": 6, "instruction": "Expira lentamente, sente a barriga a descer" }
+    ]
+  },
+  {
+    "id": "breath-03",
+    "title": "Respiração quadrada",
+    "category": "Relaxamento",
+    "icon": "ti-square",
+    "duration": "3 min",
+    "xp": 15,
+    "difficulty": 1,
+    "description": "Técnica box breathing usada para controlo rápido da ansiedade e foco.",
+    "type": "breathing",
+    "cycles": 4,
+    "phases": [
+      { "name": "Inspira", "duration": 4, "instruction": "Inspira lentamente" },
+      { "name": "Segura", "duration": 4, "instruction": "Segura o ar" },
+      { "name": "Expira", "duration": 4, "instruction": "Expira devagar" },
+      { "name": "Pausa", "duration": 4, "instruction": "Pausa antes de repetir" }
+    ]
+  },
+  {
+    "id": "quiz-01",
+    "title": "Conhece a tua ansiedade",
+    "category": "Reflexão",
+    "icon": "ti-help-circle",
+    "duration": "5 min",
+    "xp": 25,
+    "difficulty": 1,
+    "description": "Um quiz para perceberes melhor como a ansiedade social se manifesta em ti.",
+    "type": "quiz",
+    "questions": [
+      { "question": "Em que situação sentes mais ansiedade?", "options": ["Falar em público", "Iniciar conversas com desconhecidos", "Participar em atividades de grupo", "Receber críticas ou avaliações"], "multiple": false },
+      { "question": "Como costumas reagir quando sentes ansiedade social?", "options": ["Evito a situação", "Fico em silêncio e tento passar despercebido", "Começo a transpirar e a sentir o coração acelerar", "Preparo-me excessivamente com antecedência"], "multiple": true },
+      { "question": "O que costuma ajudar-te a acalmar?", "options": ["Respirar fundo", "Afastar-me brevemente", "Focar-me em algo concreto", "Lembrar situações em que correu bem"], "multiple": true },
+      { "question": "Com que frequência evitas situações por causa da ansiedade?", "options": ["Raramente", "Às vezes", "Com frequência", "Quase sempre"], "multiple": false }
+    ]
+  },
+  {
+    "id": "quiz-02",
+    "title": "Desafio de conhecimento — TCC",
+    "category": "Reflexão",
+    "icon": "ti-brain",
+    "duration": "6 min",
+    "xp": 30,
+    "difficulty": 2,
+    "description": "Testa o que sabes sobre Terapia Cognitivo-Comportamental e ansiedade social.",
+    "type": "quiz",
+    "questions": [
+      { "question": "O que significa TCC?", "options": ["Técnica de Controlo Cognitivo", "Terapia Cognitivo-Comportamental", "Treino de Competências Comunicativas", "Terapia de Controlo do Comportamento"], "correct": 1, "multiple": false },
+      { "question": "Qual é o princípio central da exposição gradual?", "options": ["Evitar situações difíceis", "Enfrentar os medos de uma só vez", "Expor-se progressivamente a situações que causam ansiedade", "Ignorar os sintomas físicos"], "correct": 2, "multiple": false },
+      { "question": "A reestruturação cognitiva serve para:", "options": ["Mudar o comportamento físico", "Identificar e reformular pensamentos negativos", "Aumentar a frequência cardíaca", "Evitar situações sociais"], "correct": 1, "multiple": false },
+      { "question": "Quais destas são técnicas de regulação emocional?", "options": ["Respiração diafragmática", "Relaxamento muscular progressivo", "Mindfulness", "Todas as anteriores"], "correct": 3, "multiple": false }
+    ]
+  },
+  {
+    "id": "challenge-01",
+    "title": "Desafio: elogia alguém",
+    "category": "Desafio",
+    "icon": "ti-heart",
+    "duration": "Hoje",
+    "xp": 25,
+    "difficulty": 1,
+    "description": "Faz um elogio genuíno a alguém hoje — colega, amigo ou familiar.",
+    "type": "challenge",
+    "instruction": "Pensa em alguém que queres elogiar. Vai lá e diz-lhes. Quando terminares, volta aqui e marca como concluído.",
+    "tips": ["Escolhe algo genuíno — não é preciso exagerar", "Olha nos olhos quando disseres", "Não esperes por uma resposta específica — o gesto já vale"]
+  },
+  {
+    "id": "challenge-02",
+    "title": "Desafio: sai da zona de conforto",
+    "category": "Desafio",
+    "icon": "ti-flame",
+    "duration": "Hoje",
+    "xp": 35,
+    "difficulty": 2,
+    "description": "Faz algo pequeno que normalmente evitarias por causa da ansiedade.",
+    "type": "challenge",
+    "instruction": "Escolhe UMA situação que costumas evitar. Faz-a hoje e regista como te sentiste.",
+    "tips": ["Começa pelo mais pequeno se precisares", "A ansiedade antes não significa que vai correr mal", "Após fazer, nota que o mundo não acabou — isso é progresso"]
+  },
+  {
+    "id": "challenge-03",
+    "title": "Desafio: pede ajuda",
+    "category": "Desafio",
+    "icon": "ti-hand-stop",
+    "duration": "Hoje",
+    "xp": 30,
+    "difficulty": 2,
+    "description": "Pedir ajuda é um ato de coragem, não de fraqueza. Hoje, pede ajuda a alguém com algo.",
+    "type": "challenge",
+    "instruction": "Pensa em algo em que poderias usar ajuda. Pede a um colega, amigo ou familiar. Quando tiveres feito, volta aqui.",
+    "tips": ["«Podes ajudar-me com...?» é uma frase simples e eficaz", "As pessoas geralmente gostam de ajudar", "Aceitar a ajuda também faz parte"]
+  }
+]

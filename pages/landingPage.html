@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CalmPath — Treina a tua coragem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark"><i class="ti ti-plant"></i></div>
+      <span class="nav-logo-name">CalmPath</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Funcionalidades</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+    </ul>
+    <div class="nav-actions" id="nav-actions">
+      <!-- preenchido pelo LandingController -->
+      <a href="/pages/auth.html" class="btn btn-ghost">Entrar</a>
+      <a href="/pages/auth.html?panel=register" class="btn btn-primary">Começar grátis</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">
+      <i class="ti ti-shield-check"></i>
+      Gratuito &amp; sem julgamentos
+    </div>
+    <h1>Treina a tua coragem,<br><span>ao teu ritmo</span></h1>
+    <p>O CalmPath ajuda jovens com ansiedade social a desenvolver competências de forma gradual, segura e motivadora — através de simulações, desafios progressivos e técnicas de regulação emocional.</p>
+    <div class="hero-actions">
+      <a href="/pages/auth.html?panel=register" class="btn btn-hero">Criar conta grátis</a>
+      <a href="#features" class="btn btn-outline-navy">Ver como funciona</a>
+    </div>
+
+    <!-- Preview de progresso -->
+    <div class="hero-preview">
+      <div class="preview-top">
+        <span>O teu progresso semanal</span>
+        <span>42%</span>
+      </div>
+      <div class="prog-track">
+        <div class="prog-fill" id="prog-fill"></div>
+      </div>
+      <div class="chips">
+        <span class="chip done"><i class="ti ti-check"></i> Respiração 4-7-8</span>
+        <span class="chip done"><i class="ti ti-check"></i> Iniciar conversa</span>
+        <span class="chip">Falar em público</span>
+        <span class="chip">Desafio em grupo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">1 em 8</div>
+      <div class="stat-label">jovens com ansiedade social</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">+35</div>
+      <div class="stat-label">atividades disponíveis</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">módulos progressivos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">gratuito e sem anúncios</div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="section-tag">Funcionalidades</div>
+    <h2 class="section-title">Tudo o que precisas para crescer</h2>
+    <p class="section-sub">Ferramentas baseadas em TCC, adaptadas ao teu progresso</p>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-stairs-up"></i></div>
+        <h3>Desafios progressivos</h3>
+        <p>Começa pelos passos mais simples e avança ao teu ritmo, sem pressão.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-messages"></i></div>
+        <h3>Simulações sociais</h3>
+        <p>Pratica situações do dia a dia — conversas, grupos e apresentações — num ambiente seguro.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-lungs"></i></div>
+        <h3>Regulação emocional</h3>
+        <p>Técnicas de respiração e relaxamento para gerir a ansiedade no momento.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-trophy"></i></div>
+        <h3>Gamificação pessoal</h3>
+        <p>Pontos, badges e jornada de progresso — sem competição, focada em ti.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-chart-line"></i></div>
+        <h3>Acompanhamento</h3>
+        <p>Monitoriza a tua evolução e recebe sugestões adaptadas ao teu histórico.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-accessible"></i></div>
+        <h3>Design inclusivo</h3>
+        <p>Interface acessível, responsiva e pensada para quem mais precisa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <div class="cta">
+      <h2>Pronto para dar o primeiro passo?</h2>
+      <p>Cria a tua conta gratuitamente e começa hoje.<br>Sem cartão de crédito, sem compromisso.</p>
+      <div class="cta-actions">
+        <a href="/pages/auth.html?panel=register" class="btn btn-cyan">Criar conta grátis</a>
+        <a href="#features" class="btn btn-outline-white">Saber mais</a>
+      </div>
+      <p class="cta-note">Gratuito para sempre &middot; Sem anúncios &middot; Os teus dados são teus</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-left">&copy; 2026 CalmPath &middot; </span>
+    <div class="footer-links">
+   
+    </div>
+  </footer>
+
+  <!-- MVC scripts — Model antes de View e Controller -->
+  <script src="js/models/userModel.js"></script>
+  <script src="js/views/LandingView.js"></script>
+  <script src="js/controllers/LandingController.js"></script>
+
+</body>
+</html>

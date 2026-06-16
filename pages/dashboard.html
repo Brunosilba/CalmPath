@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CalmPath — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/activities.css" />
+</head>
+<!-- Modal de celebração -->
+<div id="celebration-modal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-card">
+
+    <div class="modal-header">
+      <div class="modal-trophy"><i class="ti ti-trophy"></i></div>
+      <h2 id="modal-activity-title">Atividade concluída!</h2>
+      <div class="modal-xp-badge" id="modal-xp-badge">+0 XP</div>
+    </div>
+
+    <div class="modal-divider"></div>
+
+    <div class="modal-emotion">
+      <p class="modal-emotion-title">Como te sentiste?</p>
+      <div class="emotion-scale">
+        <button type="button" class="emotion-btn" data-emoji="😔" data-label="Muito ansioso">
+          <span>😔</span>
+          <span class="emotion-label">Muito ansioso</span>
+        </button>
+        <button type="button" class="emotion-btn" data-emoji="😐" data-label="Ansioso">
+          <span>😐</span>
+          <span class="emotion-label">Ansioso</span>
+        </button>
+        <button type="button" class="emotion-btn" data-emoji="🙂" data-label="Neutro">
+          <span>🙂</span>
+          <span class="emotion-label">Neutro</span>
+        </button>
+        <button type="button" class="emotion-btn" data-emoji="😊" data-label="Bem">
+          <span>😊</span>
+          <span class="emotion-label">Bem</span>
+        </button>
+        <button type="button" class="emotion-btn" data-emoji="😄" data-label="Muito bem">
+          <span>😄</span>
+          <span class="emotion-label">Muito bem</span>
+        </button>
+      </div>
+      <input type="text" id="modal-emotion-note" placeholder="Adiciona uma nota opcional..." maxlength="120" />
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-complete" id="modal-submit">Guardar e fechar</button>
+      <button class="btn-skip" id="modal-skip">Saltar</button>
+    </div>
+
+  </div>
+</div>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <a href="/pages/dashboard.html" class="nav-logo">
+      <div class="nav-logo-mark"><i class="ti ti-plant"></i></div>
+      <span class="nav-logo-name">CalmPath</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html" class="nav-active">Dashboard</a></li>
+      <li><a href="activities.html">Atividades</a></li>
+      <li><a href="profile.html">Perfil</a></li>
+    </ul>
+    <div class="nav-actions">
+      <span class="nav-username" id="nav-username"></span>
+      <button class="btn btn-ghost" id="btn-logout">
+        <i class="ti ti-logout"></i> Sair
+      </button>
+    </div>
+  </nav>
+
+  <!-- Header do utilizador -->
+  <div class="dash-header">
+    <div class="dash-header-inner">
+      <div class="dash-welcome">
+        <h1>Olá, <span id="dash-username"></span></h1>
+        <p>Continua o teu caminho — cada passo conta.</p>
+      </div>
+      <div class="dash-level-info">
+        <div class="level-badges">
+          <span class="level-tag" id="dash-level">Nível 1</span>
+          <span class="xp-tag" id="dash-xp">0 XP</span>
+        </div>
+        <div class="xp-track">
+          <div class="xp-bar-fill" id="xp-bar-fill"></div>
+        </div>
+        <span class="xp-next" id="xp-next">100 XP para o próximo nível</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main class="dash-main">
+    <!-- Estatísticas -->
+    <section class="dash-section">
+      <div class="section-header">
+        <h2><i class="ti ti-chart-bar"></i> As tuas estatísticas</h2>
+      </div>
+      <div id="stats-grid" class="stats-grid"></div>
+    </section>
+
+    <!-- Desafio diário -->
+    <section class="dash-section">
+      <div class="section-header">
+        <h2><i class="ti ti-bolt"></i> Desafio do dia</h2>
+      </div>
+      <div id="daily-challenge" class="challenge-card"></div>
+    </section>
+
+    <!-- Atividades recomendadas -->
+    <section class="dash-section">
+      <div class="section-header">
+        <h2><i class="ti ti-sparkles"></i> Recomendadas para ti</h2>
+        <a href="activities.html" class="link-all">Ver todas <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div id="recommended-grid" class="act-grid"></div>
+    </section>
+    <!-- Histórico emocional -->
+    <section class="dash-section">
+      <div class="section-header">
+        <h2><i class="ti ti-mood-smile"></i> Registo emocional</h2>
+      </div>
+      <div id="emotional-log-list" class="emotional-log-list"></div>
+    </section>
+
+    <!-- Linha inferior: histórico + badges -->
+    <div class="dash-bottom">
+
+      <section class="dash-section">
+        <div class="section-header">
+          <h2><i class="ti ti-history"></i> Atividade recente</h2>
+        </div>
+        <div id="recent-list" class="recent-list"></div>
+      </section>
+
+      <section class="dash-section">
+        <div class="section-header">
+          <h2><i class="ti ti-medal"></i> As tuas conquistas</h2>
+        </div>
+        <div id="badges-list" class="badges-list"></div>
+      </section>
+
+    </div>
+
+  </main>
+  <!-- Modal de atividade (reutilizado do activities) -->
+  <div id="activity-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card--lg">
+      <button class="modal-close-btn" id="modal-close" aria-label="Fechar">
+        <i class="ti ti-x"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast de XP -->
+  <div id="xp-toast" class="xp-toast"></div>
+
+  <!-- MVC scripts -->
+  <script src="../js/models/activitiesModel.js"></script>
+  <script src="../js/views/activitiesView.js"></script>
+  <script src="../js/models/notificationModel.js"></script>
+  <script src="../js/views/notificationView.js"></script>
+  <script src="../js/controllers/notificationController.js"></script>
+  <script src="../js/models/userModel.js"></script>
+  <script src="../js/models/dashboardModel.js"></script>
+  <script src="../js/views/dashboardView.js"></script>
+  <script src="../js/controllers/dashboardController.js"></script>
+
+</body>
+
+</html>

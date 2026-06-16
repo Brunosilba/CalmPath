@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CalmPath — Administração</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <a href="/pages/admin.html" class="nav-logo">
+      <div class="nav-logo-mark"><i class="ti ti-plant"></i></div>
+      <span class="nav-logo-name">CalmPath <span class="admin-badge">Admin</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="activities.html">Atividades</a></li>
+      <li><a href="profile.html">Perfil</a></li>
+    </ul>
+    <div class="nav-actions">
+      <span class="nav-username" id="nav-username"></span>
+      <button class="btn btn-ghost" id="btn-logout">
+        <i class="ti ti-logout"></i> Sair
+      </button>
+    </div>
+  </nav>
+
+  <!-- Cabeçalho -->
+  <div class="admin-header">
+    <div class="admin-header-inner">
+      <div>
+        <h1><i class="ti ti-shield-check"></i> Painel de Administração</h1>
+        <p>Gere utilizadores, atividades e consulta estatísticas globais.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="admin-tabs-wrap">
+    <div class="admin-tabs">
+      <button class="admin-tab admin-tab--active" data-tab="stats">
+        <i class="ti ti-chart-bar"></i> Estatísticas
+      </button>
+      <button class="admin-tab" data-tab="users">
+        <i class="ti ti-users"></i> Utilizadores
+      </button>
+      <button class="admin-tab" data-tab="activities">
+        <i class="ti ti-list-check"></i> Atividades
+      </button>
+    </div>
+  </div>
+
+  <main class="admin-main">
+
+    <!-- Painel: Estatísticas -->
+    <div class="admin-panel admin-panel--active" id="panel-stats">
+
+      <!-- Cards de métricas -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon metric-icon--blue"><i class="ti ti-users"></i></div>
+          <div class="metric-val" id="stat-users">0</div>
+          <div class="metric-label">Utilizadores</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon metric-icon--green"><i class="ti ti-check"></i></div>
+          <div class="metric-val" id="stat-acts">0</div>
+          <div class="metric-label">Atividades concluídas</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon metric-icon--purple"><i class="ti ti-star"></i></div>
+          <div class="metric-val" id="stat-xp">0</div>
+          <div class="metric-label">XP total gerado</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon metric-icon--orange"><i class="ti ti-heart"></i></div>
+          <div class="metric-val" id="stat-favs">0</div>
+          <div class="metric-label">Favoritos adicionados</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon metric-icon--cyan"><i class="ti ti-trophy"></i></div>
+          <div class="metric-val" id="stat-level">—</div>
+          <div class="metric-label">Nível médio</div>
+        </div>
+      </div>
+
+      <div class="stats-section-grid">
+        <!-- Atividade por categoria -->
+        <div class="admin-card">
+          <h2 class="admin-card-title"><i class="ti ti-chart-bar"></i> Atividades por categoria</h2>
+          <div id="stats-categories"></div>
+        </div>
+        <!-- Top utilizadores -->
+        <div class="admin-card">
+          <h2 class="admin-card-title"><i class="ti ti-medal"></i> Utilizadores mais ativos</h2>
+          <div id="stats-top-users"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel: Utilizadores -->
+    <div class="admin-panel" id="panel-users">
+      <div class="admin-card admin-card--full">
+        <div class="admin-card-toolbar">
+          <h2 class="admin-card-title"><i class="ti ti-users"></i> Gestão de utilizadores</h2>
+          <div class="search-wrap">
+            <i class="ti ti-search"></i>
+            <input type="search" id="user-search" placeholder="Pesquisar utilizadores..." />
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Utilizador</th>
+                <th>Papel</th>
+                <th>Atividades</th>
+                <th>XP</th>
+                <th>Registado em</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="users-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel: Atividades -->
+    <div class="admin-panel" id="panel-activities">
+      <div class="admin-card admin-card--full">
+        <div class="admin-card-toolbar">
+          <h2 class="admin-card-title"><i class="ti ti-list-check"></i> Gestão de atividades</h2>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <div class="search-wrap">
+              <i class="ti ti-search"></i>
+              <input type="search" id="act-search" placeholder="Pesquisar atividades..." />
+            </div>
+            <button class="btn-admin-primary" id="btn-new-activity">
+              <i class="ti ti-plus"></i> Nova atividade
+            </button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Categoria</th>
+                <th>Dificuldade</th>
+                <th>XP</th>
+                <th>Duração</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="acts-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal: Editar utilizador -->
+  <div id="user-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Fechar"><i class="ti ti-x"></i></button>
+      <h3 class="modal-title">Editar utilizador</h3>
+      <form id="form-user-modal" novalidate>
+        <input type="hidden" id="modal-user-id" />
+        <div class="form-group">
+          <label for="modal-user-name">Nome</label>
+          <input type="text" id="modal-user-name" />
+        </div>
+        <div class="form-group">
+          <label for="modal-user-email">Email</label>
+          <input type="email" id="modal-user-email" />
+        </div>
+        <div class="form-group">
+          <label for="modal-user-role">Papel</label>
+          <select id="modal-user-role" class="form-select">
+            <option value="user">Utilizador</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <span class="field-msg" id="user-modal-msg"></span>
+        <div class="modal-footer">
+          <button type="button" class="btn-modal-cancel">Cancelar</button>
+          <button type="submit" class="btn-admin-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Criar/editar atividade -->
+  <div id="act-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card modal-card--lg">
+      <button class="modal-close" aria-label="Fechar"><i class="ti ti-x"></i></button>
+      <h3 class="modal-title" id="act-modal-title">Nova atividade</h3>
+      <form id="form-act-modal" novalidate>
+        <input type="hidden" id="modal-act-id" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-act-title">Título</label>
+            <input type="text" id="modal-act-title" placeholder="Nome da atividade" />
+          </div>
+          <div class="form-group">
+            <label for="modal-act-category">Categoria</label>
+            <select id="modal-act-category" class="form-select">
+              <option>Simulação</option>
+              <option>Relaxamento</option>
+              <option>Reflexão</option>
+              <option>Desafio</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-act-type">Tipo</label>
+            <select id="modal-act-type" class="form-select">
+              <option value="simulation">Simulação</option>
+              <option value="breathing">Respiração</option>
+              <option value="quiz">Quiz</option>
+              <option value="challenge">Desafio</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modal-act-difficulty">Dificuldade</label>
+            <select id="modal-act-difficulty" class="form-select">
+              <option value="1">Fácil</option>
+              <option value="2">Médio</option>
+              <option value="3">Difícil</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-act-xp">XP</label>
+            <input type="number" id="modal-act-xp" min="1" max="200" />
+          </div>
+          <div class="form-group">
+            <label for="modal-act-duration">Duração</label>
+            <input type="text" id="modal-act-duration" placeholder="Ex: 5 min" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="modal-act-icon">Ícone (Tabler)</label>
+          <input type="text" id="modal-act-icon" placeholder="Ex: ti-heart" />
+        </div>
+        <div class="form-group">
+          <label for="modal-act-desc">Descrição</label>
+          <textarea id="modal-act-desc" rows="3" placeholder="Breve descrição da atividade..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="modal-act-instruction">Instrução (desafios)</label>
+          <textarea id="modal-act-instruction" rows="2" placeholder="Instrução detalhada para o utilizador..."></textarea>
+        </div>
+        <span class="field-msg" id="act-modal-msg"></span>
+        <div class="modal-footer">
+          <button type="button" class="btn-modal-cancel">Cancelar</button>
+          <button type="submit" class="btn-admin-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Confirmação -->
+  <div id="confirm-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card modal-card--sm">
+      <h3 class="modal-title">Confirmar ação</h3>
+      <p id="confirm-msg" class="confirm-msg"></p>
+      <div class="modal-footer">
+        <button class="btn-modal-cancel">Cancelar</button>
+        <button class="btn-admin-danger" id="btn-confirm-yes">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="admin-toast" class="xp-toast"></div>
+
+  <!-- MVC scripts -->
+  <script src="../js/models/userModel.js"></script>
+  <script src="../js/models/adminModel.js"></script>
+  <script src="../js/views/adminView.js"></script>
+  <script src="../js/controllers/adminController.js"></script>
+
+</body>
+</html>
