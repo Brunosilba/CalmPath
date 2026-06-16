@@ -82,7 +82,7 @@ const DashboardController = (() => {
 
   function handleLogout() {
     UserModel.logout();
-    window.location.href = '../landingPage.html';
+    window.location.href = '\landingPage.html';
   }
 
   async function handleStart(activityId) {

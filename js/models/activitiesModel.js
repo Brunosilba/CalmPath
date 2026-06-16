@@ -7,7 +7,7 @@ const ActivitiesModel = (() => {
  async function loadActivities() {
   if (_activities.length > 0) return _activities;
 
-  // 1.º — versão editada pelo admin (localStorage tem prioridade)
+  
   try {
     const stored = localStorage.getItem('cp_admin_activities');
     if (stored) {
@@ -21,7 +21,7 @@ const ActivitiesModel = (() => {
     console.warn('cp_admin_activities inválido, a usar JSON base:', e);
   }
 
-  // 2.º — fallback ao ficheiro original
+  // 
   try {
     const res = await fetch('../data/activities.json');
     _activities = await res.json();

@@ -13,7 +13,7 @@ const DashboardView = (() => {
     const bar = document.getElementById('xp-bar-fill');
     if (bar) setTimeout(() => { bar.style.width = `${xpData.progress}%`; }, 100);
 
-    document.getElementById('xp-next').textContent = `${xpData.xpForNextLevel} XP para o próximo nível`;
+    document.getElementById('xp-next').textContent = `${xpData.xpForNextLevel-xpData.xp} XP para o próximo nível`;
   }
 
   function renderStats(stats) {
