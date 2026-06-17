@@ -1,8 +1,8 @@
-// activitiesView.js — View do catálogo de atividades (MVC)
+
 
 const ActivitiesView = (() => {
 
-  // ── Catálogo ───────────────────────────────────────────────────────────────
+  // ── Catálogo
   function renderFilters(categories, activeCategory) {
     const el = document.getElementById('filter-bar');
     if (!el) return;
@@ -69,7 +69,7 @@ const ActivitiesView = (() => {
     btn.setAttribute('aria-label', isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos');
   }
 
-  // ── Modal de Simulação ─────────────────────────────────────────────────────
+  // ── Modal de Simulação 
   function showSimulationModal(activity) {
     const body = document.getElementById('modal-body');
     _openModal();
@@ -134,7 +134,7 @@ const ActivitiesView = (() => {
     });
   }
 
-  // ── Modal de Respiração ────────────────────────────────────────────────────
+  // ── Modal de Respiração 
   function showBreathingModal(activity) {
     const body = document.getElementById('modal-body');
     _openModal();
@@ -211,7 +211,7 @@ const ActivitiesView = (() => {
     renderBreath();
   }
 
-  // ── Modal de Quiz ──────────────────────────────────────────────────────────
+  // ── Modal de Quiz 
   function showQuizModal(activity) {
     const body = document.getElementById('modal-body');
     _openModal();
@@ -279,7 +279,7 @@ const ActivitiesView = (() => {
     });
   }
 
-  // ── Modal de Desafio ───────────────────────────────────────────────────────
+  // ── Modal de Desafio 
   function showChallengeModal(activity) {
     const body = document.getElementById('modal-body');
     _openModal();
@@ -307,7 +307,7 @@ const ActivitiesView = (() => {
     });
   }
 
-  // ── Helpers de modal ───────────────────────────────────────────────────────
+  // ── Helpers de modal 
   function _openModal() {
     const m = document.getElementById('activity-modal');
     m.setAttribute('aria-hidden', 'false');
@@ -320,7 +320,7 @@ const ActivitiesView = (() => {
     m.classList.remove('modal-overlay--visible');
   }
 
-  // ── Toast ──────────────────────────────────────────────────────────────────
+  // ── Toast 
   function showToast(msg) {
     const t = document.getElementById('act-toast');
     if (!t) return;
@@ -329,7 +329,7 @@ const ActivitiesView = (() => {
     setTimeout(() => t.classList.remove('xp-toast--visible'), 2500);
   }
 
-  // ── Bindings ───────────────────────────────────────────────────────────────
+  // ── Bindings 
   function bindFilters(cb) {
     document.getElementById('filter-bar')?.addEventListener('click', e => {
       const btn = e.target.closest('.filter-btn');

@@ -1,4 +1,4 @@
-// profileController.js — Controller da página de perfil (MVC)
+
 
 const ProfileController = (() => {
 
@@ -15,7 +15,7 @@ const ProfileController = (() => {
     ProfileView.fillEditForm(user);
     ProfileView.bindTabs();
 
-    // carregar favoritos (precisa do JSON de atividades)
+    // carregar favoritos 
     await _loadAndRenderFavorites();
 
     ProfileView.renderEmotionalLog(ProfileModel.getFullEmotionalLog());

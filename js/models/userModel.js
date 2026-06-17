@@ -4,7 +4,7 @@ const UserModel = (() => {
     users: 'cp_users',
   };
 
-  // Seed do admin na inicialização
+  
   function Admin() {
     const users = getUsers();
     if (!users.find(u => u.email === 'admin@gmail.com')) {

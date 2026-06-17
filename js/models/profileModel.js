@@ -1,4 +1,4 @@
-// profileModel.js — Model da página de perfil (MVC)
+
 
 const ProfileModel = (() => {
 
@@ -16,7 +16,7 @@ const ProfileModel = (() => {
     if (idx !== -1) { users[idx] = user; localStorage.setItem(KEY_USERS, JSON.stringify(users)); }
   }
 
-  // ── Dados do utilizador ────────────────────────────────────────────────────
+  // ── Dados do utilizador 
   function getUser() { return _getUser(); }
 
   function updateProfile({ name, email }) {
@@ -45,7 +45,7 @@ const ProfileModel = (() => {
     return { success: true };
   }
 
-  // ── Favoritos ──────────────────────────────────────────────────────────────
+  // ── Favoritos 
   function getFavoriteIds() { return _getUser()?.favorites || []; }
 
   function removeFavorite(id) {
@@ -55,13 +55,13 @@ const ProfileModel = (() => {
     _saveUser(user);
   }
 
-  // ── Histórico emocional completo ───────────────────────────────────────────
+  // ── Histórico emocional completo 
   function getFullEmotionalLog() {
     const user = _getUser();
     return (user?.emotionalLog || []).slice().reverse();
   }
 
-  // ── Objetivos pessoais ─────────────────────────────────────────────────────
+  // ── Objetivos pessoais 
   function getGoals() { return _getUser()?.goals || []; }
 
   function addGoal(text) {
@@ -88,7 +88,7 @@ const ProfileModel = (() => {
     _saveUser(user);
   }
 
-  // ── Estatísticas resumo ────────────────────────────────────────────────────
+  // ── Estatísticas resumo 
   function getStats() {
     const user = _getUser();
     if (!user) return { totalActivities: 0, totalXp: 0, level: 1, badges: 0, favorites: 0 };

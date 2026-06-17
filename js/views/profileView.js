@@ -1,8 +1,7 @@
-// profileView.js — View da página de perfil (MVC)
 
 const ProfileView = (() => {
 
-  // ── Cabeçalho / avatar ─────────────────────────────────────────────────────
+  // ── Cabeçalho / avatar 
   function renderHeader(user, stats) {
     const initials = user.name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
     const joined   = new Date(user.createdAt).toLocaleDateString('pt-PT', { month: 'long', year: 'numeric' });
@@ -20,7 +19,7 @@ const ProfileView = (() => {
     document.getElementById('hdr-stat-level').textContent = stats.level;
   }
 
-  // ── Formulário de edição ───────────────────────────────────────────────────
+  // ── Formulário de edição 
   function fillEditForm(user) {
     document.getElementById('edit-name').value  = user.name;
     document.getElementById('edit-email').value = user.email;
@@ -49,7 +48,7 @@ const ProfileView = (() => {
     showFieldMsg('pwd-msg', '', '');
   }
 
-  // ── Favoritos ──────────────────────────────────────────────────────────────
+  // ── Favoritos
   function renderFavorites(activities) {
     const el = document.getElementById('favorites-list');
     if (!el) return;
@@ -85,7 +84,7 @@ const ProfileView = (() => {
     }
   }
 
-  // ── Histórico emocional ────────────────────────────────────────────────────
+  // ── Histórico emocional
   function renderEmotionalLog(log) {
     const el = document.getElementById('emotional-log-full');
     if (!el) return;
@@ -110,7 +109,7 @@ const ProfileView = (() => {
     }).join('');
   }
 
-  // ── Objetivos ──────────────────────────────────────────────────────────────
+  // ── Objetivos 
   function renderGoals(goals) {
     const el = document.getElementById('goals-list');
     if (!el) return;
@@ -140,7 +139,7 @@ const ProfileView = (() => {
     return val || '';
   }
 
-  // ── Feedback / mensagens ───────────────────────────────────────────────────
+  // ── Feedback / mensagens 
   function showFieldMsg(id, msg, type) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -156,7 +155,7 @@ const ProfileView = (() => {
     setTimeout(() => t.classList.remove('xp-toast--visible'), 2600);
   }
 
-  // ── Tabs ───────────────────────────────────────────────────────────────────
+  // ── Tabs 
   function bindTabs() {
     document.querySelectorAll('.profile-tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -169,7 +168,7 @@ const ProfileView = (() => {
     });
   }
 
-  // ── Bindings de formulários ────────────────────────────────────────────────
+  // ── Bindings de formulários 
   function bindEditForm(cb) {
     document.getElementById('form-edit')?.addEventListener('submit', e => { e.preventDefault(); cb(getEditFormData()); });
   }
@@ -207,7 +206,7 @@ const ProfileView = (() => {
     document.getElementById('btn-logout')?.addEventListener('click', cb);
   }
 
-  // ── util ───────────────────────────────────────────────────────────────────
+  // ── util 
   function _catSlug(cat) {
     return cat.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-');
   }

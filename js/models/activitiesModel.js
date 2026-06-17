@@ -1,4 +1,4 @@
-// activitiesModel.js — Model do catálogo de atividades (MVC)
+
 
 const ActivitiesModel = (() => {
 
@@ -56,7 +56,7 @@ const ActivitiesModel = (() => {
     return ['Todas', ...cats];
   }
 
-  // ── Favoritos ──────────────────────────────────────────────────────────────
+  // ── Favoritos 
   function _getUser() {
     return JSON.parse(localStorage.getItem('cp_current_user'));
   }

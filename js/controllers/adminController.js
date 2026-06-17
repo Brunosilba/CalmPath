@@ -1,9 +1,9 @@
-// adminController.js — Controller da área de administração (MVC)
+
 
 const AdminController = (() => {
 
   async function init() {
-    // guard: só admins
+    
     if (!UserModel.isLoggedIn()) { window.location.href = 'auth.html'; return; }
     if (!AdminModel.isAdmin())   { window.location.href = 'dashboard.html'; return; }
 
@@ -13,7 +13,7 @@ const AdminController = (() => {
 
     await AdminModel.loadActivities();
 
-    // renderizar tudo
+    
     _renderStats();
     _renderUsers();
     _renderActivities();
@@ -51,7 +51,7 @@ const AdminController = (() => {
     AdminView.renderActivities(AdminModel.getActivities());
   }
 
-  // ── Utilizadores ───────────────────────────────────────────────────────────
+  // ── Utilizadores 
   function handleEditUser(id) {
     const user = AdminModel.getUserById(id);
     if (user) AdminView.showUserModal(user);
@@ -94,7 +94,7 @@ const AdminController = (() => {
     );
   }
 
-  // ── Atividades ─────────────────────────────────────────────────────────────
+  // ── Atividades 
   function handleEditActivity(id) {
     const act = AdminModel.getActivityById(id);
     if (act) AdminView.showActivityModal(act);

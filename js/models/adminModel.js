@@ -1,4 +1,4 @@
-// adminModel.js — Model da área de administração (MVC)
+
 
 const AdminModel = (() => {
 
@@ -6,7 +6,7 @@ const AdminModel = (() => {
   const KEY_CURRENT  = 'cp_current_user';
   const KEY_ACTS     = 'cp_admin_activities'; // atividades editadas pelo admin
 
-  // ── Admin guard ────────────────────────────────────────────────────────────
+  // ── Admin guard 
   function isAdmin() {
     const user = JSON.parse(localStorage.getItem(KEY_CURRENT));
     return user?.role === 'admin';
@@ -16,7 +16,7 @@ const AdminModel = (() => {
     return JSON.parse(localStorage.getItem(KEY_CURRENT)) || null;
   }
 
-  // ── Utilizadores ───────────────────────────────────────────────────────────
+  // ── Utilizadores 
   function getUsers() {
     return JSON.parse(localStorage.getItem(KEY_USERS)) || [];
   }
@@ -53,7 +53,7 @@ const AdminModel = (() => {
     return { success: true };
   }
 
-  // ── Atividades (geridas pelo admin, sobrepõem o JSON) ──────────────────────
+  
   let _baseActivities = [];
 
   async function loadActivities() {
@@ -125,7 +125,7 @@ const AdminModel = (() => {
     return { success: true };
   }
 
-  // ── Estatísticas gerais ────────────────────────────────────────────────────
+  // ── Estatísticas gerais 
   function getGlobalStats() {
     const users = getUsers().filter(u => u.role !== 'admin');
     const totalActs    = users.reduce((s, u) => s + (u.activityHistory?.length || 0), 0);

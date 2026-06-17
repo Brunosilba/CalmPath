@@ -1,8 +1,8 @@
-// adminView.js — View da área de administração (MVC)
+
 
 const AdminView = (() => {
 
-  // ── Tabs ───────────────────────────────────────────────────────────────────
+  // ── Tabs 
   function bindTabs() {
     document.querySelectorAll('.admin-tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -15,7 +15,7 @@ const AdminView = (() => {
     });
   }
 
-  // ── Estatísticas ───────────────────────────────────────────────────────────
+  // ── Estatísticas 
   function renderStats(stats) {
     document.getElementById('stat-users').textContent  = stats.totalUsers;
     document.getElementById('stat-acts').textContent   = stats.totalActs;
@@ -57,7 +57,7 @@ const AdminView = (() => {
     }
   }
 
-  // ── Utilizadores ───────────────────────────────────────────────────────────
+  // ── Utilizadores 
   function renderUsers(users) {
     const el = document.getElementById('users-table-body');
     if (!el) return;
@@ -107,7 +107,7 @@ const AdminView = (() => {
     });
   }
 
-  // ── Modal utilizador ───────────────────────────────────────────────────────
+  // ── Modal utilizador 
   function showUserModal(user) {
     document.getElementById('modal-user-id').value    = user.id;
     document.getElementById('modal-user-name').value  = user.name;
@@ -126,7 +126,7 @@ const AdminView = (() => {
     };
   }
 
-  // ── Atividades ─────────────────────────────────────────────────────────────
+  // ── Atividades 
   function renderActivities(activities) {
     const el = document.getElementById('acts-table-body');
     if (!el) return;
@@ -167,7 +167,7 @@ const AdminView = (() => {
     });
   }
 
-  // ── Modal atividade ────────────────────────────────────────────────────────
+  // ── Modal atividade 
   function showActivityModal(activity) {
     const isNew = !activity;
     document.getElementById('act-modal-title').textContent = isNew ? 'Nova atividade' : 'Editar atividade';
@@ -200,7 +200,7 @@ const AdminView = (() => {
     };
   }
 
-  // ── Modal confirmação ──────────────────────────────────────────────────────
+  // ── Modal confirmação 
   function showConfirmModal(msg, onConfirm) {
     document.getElementById('confirm-msg').textContent = msg;
     _openModal('confirm-modal');
@@ -210,7 +210,7 @@ const AdminView = (() => {
     clone.addEventListener('click', () => { hideModal('confirm-modal'); onConfirm(); });
   }
 
-  // ── Modais helpers ─────────────────────────────────────────────────────────
+  // ── Modais helpers 
   function _openModal(id) {
     const m = document.getElementById(id);
     m?.classList.add('modal-overlay--visible');
@@ -228,7 +228,7 @@ const AdminView = (() => {
     if (el) { el.textContent = msg; el.className = `field-msg field-msg--${type}`; }
   }
 
-  // ── Toast ──────────────────────────────────────────────────────────────────
+  // ── Toast 
   function showToast(msg, type = 'success') {
     const t = document.getElementById('admin-toast');
     if (!t) return;
@@ -237,7 +237,7 @@ const AdminView = (() => {
     setTimeout(() => t.classList.remove('xp-toast--visible'), 2600);
   }
 
-  // ── Bindings ───────────────────────────────────────────────────────────────
+  // ── Bindings 
   function bindUserSearch(cb) {
     document.getElementById('user-search')?.addEventListener('input', e => cb(e.target.value.trim()));
   }

@@ -27,7 +27,7 @@ const NotificationModel = (() => {
       read: false,
       createdAt: new Date().toISOString(),
     });
-    // Máximo 30 notificações
+    
     user.notifications = user.notifications.slice(0, 30);
     _saveUser(user);
   }

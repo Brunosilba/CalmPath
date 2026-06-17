@@ -1,4 +1,4 @@
-// LandingView.js — responsável por renderizar e atualizar o DOM da landing
+
 
 const LandingView = (() => {
 

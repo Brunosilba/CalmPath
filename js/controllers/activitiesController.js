@@ -1,4 +1,4 @@
-// activitiesController.js — Controller do catálogo de atividades (MVC)
+
 
 const ActivitiesController = (() => {
 

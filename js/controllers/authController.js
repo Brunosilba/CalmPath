@@ -37,12 +37,17 @@ function handleLogin({ email, password }) {
     }, 400);
   }
 
-  function handleRegister({ name, email, password, confirm }) {
+function handleRegister({ name, email, password, confirm }) {
+    const emailRegisto = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegisto.test(email)) {
+      AuthView.showError('reg-email-error', 'Introduz um email válido.');
+      return;
+    }
+
     if (password !== confirm) {
       AuthView.showError('reg-confirm-error', 'As palavras-passe não coincidem.');
       return;
     }
-
     AuthView.setLoading('btn-register', true);
 
     setTimeout(() => {

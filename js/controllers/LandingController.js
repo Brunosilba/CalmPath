@@ -1,4 +1,4 @@
-// LandingController.js — coordena Model e View na landing page
+
 
 const LandingController = (() => {
 

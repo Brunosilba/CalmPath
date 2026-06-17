@@ -1,6 +1,6 @@
 const NotificationController = (() => {
   function init() {
-    // Injeta o sino na navbar
+    
     const navActions = document.querySelector('.nav-actions');
     if (!navActions) return;
 
@@ -68,7 +68,7 @@ const NotificationController = (() => {
     }
   }
 
-  // Chamado externamente quando algo acontece
+  
   function notify({ type, message, icon, toast = true }) {
     NotificationModel.add({ type, message, icon });
     _refresh();
